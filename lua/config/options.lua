@@ -5,3 +5,5 @@ vim.opt.cursorline = true
 -- Keep cursor away from screen edges
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5
+
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect", "popup" }

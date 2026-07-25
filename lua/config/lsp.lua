@@ -1,6 +1,5 @@
 vim.lsp.config("lua_ls", {
 	cmd = { "lua-language-server" },
-
 	filetypes = { "lua" },
 
 	root_markers = {
@@ -14,11 +13,9 @@ vim.lsp.config("lua_ls", {
 			diagnostics = {
 				globals = { "vim" },
 			},
-
 			workspace = {
 				checkThirdParty = false,
 			},
-
 			telemetry = {
 				enable = false,
 			},
