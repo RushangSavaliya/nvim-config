@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 local terminal = require("config.terminal")
 
+-- Search navigation
 map("n", "n", "nzzzv", { desc = "Next search result" })
 map("n", "N", "Nzzzv", { desc = "Previous search result" })
 
@@ -12,3 +13,6 @@ map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent Files" })
 
 -- Terminal
 map("n", "<leader>tt", terminal.toggle, { desc = "Toggle Terminal" })
+
+-- Terminal mode
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })

@@ -1,38 +1,28 @@
 local M = {}
 
-local terminal_buf = nil
-local terminal_win = nil
-
 function M.toggle()
-	-- If terminal window is open, hide it
-	if terminal_win and vim.api.nvim_win_is_valid(terminal_win) then
-		vim.api.nvim_win_close(terminal_win, true)
-		terminal_win = nil
-		return
+	-- Find an existing terminal window.
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local buf = vim.api.nvim_win_get_buf(win)
+
+		if vim.bo[buf].buftype == "terminal" then
+			vim.api.nvim_win_close(win, false)
+			return
+		end
 	end
 
-	-- Reuse existing terminal buffer
-	if not terminal_buf or not vim.api.nvim_buf_is_valid(terminal_buf) then
-		terminal_buf = vim.api.nvim_create_buf(false, true)
-		vim.bo[terminal_buf].buflisted = false
-		vim.bo[terminal_buf].bufhidden = "hide"
-
-		vim.cmd("botright split")
-		terminal_win = vim.api.nvim_get_current_win()
-
-		vim.api.nvim_win_set_buf(terminal_win, terminal_buf)
-
-		vim.cmd("terminal")
-	else
-		vim.cmd("botright split")
-		terminal_win = vim.api.nvim_get_current_win()
-
-		vim.api.nvim_win_set_buf(terminal_win, terminal_buf)
+	-- Reopen an existing hidden terminal buffer.
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.bo[buf].buftype == "terminal" and vim.api.nvim_buf_is_valid(buf) then
+			vim.cmd("botright split")
+			vim.api.nvim_win_set_buf(0, buf)
+			vim.cmd("startinsert")
+			return
+		end
 	end
 
-	-- Terminal height
-	vim.api.nvim_win_set_height(terminal_win, 10)
-
+	-- Create a new terminal.
+	vim.cmd("botright split | terminal")
 	vim.cmd("startinsert")
 end
 
