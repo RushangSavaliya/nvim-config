@@ -9,6 +9,7 @@ vim.lsp.start({
 	name = "jdtls",
 	cmd = { "jdtls" },
 	root_dir = root_dir,
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	settings = {
 		java = {},
 	},
