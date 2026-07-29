@@ -4,7 +4,7 @@ local colorscheme = "gruvbox-material"
 return {
 	{
 		"sainnhe/gruvbox-material",
-		lazy = false,
+		lazy = colorscheme ~= "gruvbox-material",
 		priority = 1000,
 
 		init = function()
@@ -37,7 +37,7 @@ return {
 
 	{
 		"sainnhe/everforest",
-		lazy = false,
+		lazy = colorscheme ~= "everforest",
 		priority = 1000,
 
 		init = function()
