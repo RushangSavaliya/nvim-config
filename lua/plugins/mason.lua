@@ -23,6 +23,7 @@ return {
 				"html-lsp",
 				"css-lsp",
 				"typescript-language-server",
+				"emmet-language-server",
 				"clangd",
 				"intelephense",
 				-- Formatters
