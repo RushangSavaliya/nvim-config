@@ -16,7 +16,7 @@ return {
 		respect_scrolloff = true,
 		cursor_scrolls_alone = true,
 
-		duration_multiplier = 0.3,
+		duration_multiplier = 1.0,
 		easing = "quadratic",
 
 		performance_mode = false,

@@ -24,3 +24,9 @@ vim.opt.splitbelow = true
 
 -- Faster CursorHold events (affects diagnostics, LSP-related UI)
 vim.opt.updatetime = 250
+
+-- Indentation: real tabs, width 8, everywhere
+vim.opt.expandtab = false
+vim.opt.tabstop = 8
+vim.opt.shiftwidth = 8
+vim.opt.softtabstop = 0
