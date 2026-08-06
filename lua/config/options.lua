@@ -9,7 +9,7 @@ vim.opt.sidescrolloff = 5
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect", "popup" }
 
 -- System clipboard
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- Persistent undo across sessions
 vim.opt.undofile = true
