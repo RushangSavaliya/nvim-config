@@ -33,7 +33,6 @@ return {
 			"prettier",
 			"clang-format",
 			"php-cs-fixer",
-			"google-java-format",
 			},
 			auto_update = false,
 			run_on_start = true,
