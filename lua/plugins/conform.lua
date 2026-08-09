@@ -26,5 +26,20 @@ return {
 				lsp_format = "fallback",
 			},
 		},
+
+		config = function(_, opts)
+			require("conform").setup(opts)
+
+			-- Trim trailing whitespace on save, registered after conform's own
+			-- BufWritePre handler so it always runs on the formatted result.
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = vim.api.nvim_create_augroup("trim_trailing_whitespace", { clear = true }),
+				callback = function()
+					local view = vim.fn.winsaveview()
+					vim.cmd([[keeppatterns %s/\s\+$//e]])
+					vim.fn.winrestview(view)
+				end,
+			})
+		end,
 	},
 }

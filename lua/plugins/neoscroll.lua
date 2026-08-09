@@ -6,9 +6,6 @@ return {
 			"<C-d>",
 			"<C-b>",
 			"<C-f>",
-			"zz",
-			"zt",
-			"zb",
 		},
 
 		hide_cursor = true,

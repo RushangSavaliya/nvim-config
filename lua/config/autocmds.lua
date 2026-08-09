@@ -21,16 +21,6 @@ autocmd("BufReadPost", {
 	end,
 })
 
--- Trim trailing whitespace on save
-autocmd("BufWritePre", {
-	group = augroup("trim_trailing_whitespace", { clear = true }),
-	callback = function()
-		local view = vim.fn.winsaveview()
-		vim.cmd([[keeppatterns %s/\s\+$//e]])
-		vim.fn.winrestview(view)
-	end,
-})
-
 -- Auto-resize splits when the terminal window is resized
 autocmd("VimResized", {
 	group = augroup("auto_resize_splits", { clear = true }),
@@ -54,6 +44,10 @@ autocmd("LspAttach", {
 		map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
 		map("n", "<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
 		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+		map("n", "<leader>cf", function()
+			require("conform").format({ timeout_ms = 1000, lsp_format = "fallback" })
+		end, "Format Buffer")
+		map("n", "<leader>cs", vim.lsp.buf.document_symbol, "Document Symbols")
 		map("n", "<leader>D", vim.diagnostic.open_float, "Line Diagnostics")
 		map("n", "[d", function()
 			vim.diagnostic.jump({ count = -1, float = true })
