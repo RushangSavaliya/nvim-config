@@ -16,6 +16,14 @@ vim.lsp.start({
 	root_dir = root_dir,
 	capabilities = require("blink.cmp").get_lsp_capabilities(),
 	settings = {
-		java = {},
+		java = {
+			format = {
+				enabled = true,
+				settings = {
+					url = vim.fn.stdpath("config") .. "/java/eclipse-java-8tab.xml",
+					profile = "Java8Tabs",
+				},
+			},
+		},
 	},
 })

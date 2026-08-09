@@ -18,17 +18,7 @@ return {
 				typescriptreact = { "prettier" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
-				java = { "clang_format_java" },
 				php = { "php-cs-fixer" },
-			},
-
-			formatters = {
-				clang_format_java = {
-					inherit = "clang-format",
-					append_args = {
-						"--style={BasedOnStyle: LLVM, IndentWidth: 8, TabWidth: 8, UseTab: Always}",
-					},
-				},
 			},
 
 			format_on_save = {
