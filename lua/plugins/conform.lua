@@ -2,6 +2,16 @@ return {
 	{
 		"stevearc/conform.nvim",
 		opts = {
+			formatters = {
+				["clang-format"] = {
+					args = {
+						"-assume-filename",
+						"$FILENAME",
+						"-style=file:" .. vim.fn.stdpath("config") .. "/.clang-format",
+					},
+				},
+			},
+
 			formatters_by_ft = {
 				lua = { "stylua" },
 				luau = { "stylua" },
