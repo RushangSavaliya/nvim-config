@@ -25,6 +25,9 @@ vim.opt.splitbelow = true
 -- Faster CursorHold events (affects diagnostics, LSP-related UI)
 vim.opt.updatetime = 250
 
+-- Keep multi-key maps (jj/jk, leader sequences) responsive
+vim.opt.timeoutlen = 500
+
 -- Indentation: real tabs, width 8, everywhere
 vim.opt.expandtab = false
 vim.opt.tabstop = 8
