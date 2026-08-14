@@ -55,5 +55,11 @@ autocmd("LspAttach", {
 		map("n", "]d", function()
 			vim.diagnostic.jump({ count = 1, float = true })
 		end, "Next Diagnostic")
+		map("n", "<leader>ui", function()
+			vim.lsp.inlay_hint.enable(
+				not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }),
+				{ bufnr = event.buf }
+			)
+		end, "Toggle Inlay Hints")
 	end,
 })

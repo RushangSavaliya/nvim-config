@@ -2,6 +2,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
+-- Always show the gutter so diagnostics/gitsigns don't shift the text
+vim.opt.signcolumn = "yes"
+
 -- Keep cursor away from screen edges
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 5
@@ -27,6 +30,9 @@ vim.opt.updatetime = 250
 
 -- Keep multi-key maps (jj/jk, leader sequences) responsive
 vim.opt.timeoutlen = 500
+
+-- Delete the comment leader when joining comment lines
+vim.opt.formatoptions:append("j")
 
 -- Indentation: real tabs, width 8, everywhere
 vim.opt.expandtab = false
