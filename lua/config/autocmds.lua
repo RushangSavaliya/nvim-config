@@ -73,5 +73,13 @@ autocmd("LspAttach", {
 				{ bufnr = event.buf }
 			)
 		end, "Toggle Inlay Hints")
+
+		-- Java-specific extras from nvim-jdtls
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client and client.name == "jdtls" then
+			map("n", "<A-o>", function()
+				require("jdtls").organize_imports()
+			end, "Organize Imports")
+		end
 	end,
 })

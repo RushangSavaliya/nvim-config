@@ -19,6 +19,7 @@ return {
 				"lua-language-server",
 				"luau-lsp",
 				"jdtls",
+				"lemminx",
 				"basedpyright",
 				"html-lsp",
 				"css-lsp",
