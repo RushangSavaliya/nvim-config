@@ -53,7 +53,8 @@ map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent Files" })
 
 -- Terminal
-map("n", "<leader>tt", terminal.toggle, { desc = "Toggle Terminal" })
+map("n", "<leader>tt", terminal.toggle_split, { desc = "Toggle Terminal (split)" })
+map("n", "<leader>tf", terminal.toggle_float, { desc = "Toggle Terminal (float)" })
 
 -- Terminal mode
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })

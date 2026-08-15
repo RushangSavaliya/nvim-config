@@ -17,6 +17,9 @@ vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect", "popup" }
 -- Persistent undo across sessions
 vim.opt.undofile = true
 
+-- Terminal scrollback: scroll history with gg/G/Ctrl-d in terminal normal mode
+vim.opt.scrollback = 100000
+
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

@@ -21,6 +21,18 @@ autocmd("BufReadPost", {
 	end,
 })
 
+-- Terminal buffers: keep jobs alive when hidden + graceful close with q
+autocmd("TermOpen", {
+	group = augroup("terminal_buffers", { clear = true }),
+	callback = function()
+		vim.bo.buflisted = false
+		vim.bo.bufhidden = "hide"
+		vim.keymap.set("n", "q", function()
+			require("config.terminal").close()
+		end, { buffer = true, desc = "Close terminal window" })
+	end,
+})
+
 -- Auto-resize splits when the terminal window is resized
 autocmd("VimResized", {
 	group = augroup("auto_resize_splits", { clear = true }),
