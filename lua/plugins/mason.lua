@@ -28,6 +28,8 @@ return {
 				"intelephense",
 				-- Formatters
 				"stylua",
+				-- Treesitter CLI (used by nvim-treesitter to build parsers)
+				"tree-sitter-cli",
 				"ruff",
 				"prettier",
 				"clang-format",
