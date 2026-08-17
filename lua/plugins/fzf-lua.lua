@@ -5,10 +5,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
-			-- Use Neovim's current colorscheme for fzf
 			fzf_colors = true,
-
-			-- Floating window
 			winopts = {
 				height = 0.85,
 				width = 0.80,
@@ -16,7 +13,6 @@ return {
 				col = 0.50,
 				border = "rounded",
 				backdrop = 60,
-
 				preview = {
 					border = "rounded",
 					hidden = false,
@@ -25,19 +21,32 @@ return {
 					layout = "flex",
 				},
 			},
-
-			-- File picker
 			files = {
 				hidden = true,
 				follow = false,
 				no_ignore = false,
+				previewer = true,
 			},
-
-			-- Live grep
 			grep = {
-				hidden = false,
+				hidden = true,
 				follow = false,
 				no_ignore = false,
+			},
+			keymap = {
+				fzf = {
+					["ctrl-t"] = "select-all",
+					["ctrl-x"] = "jump-accept",
+				},
+			},
+			actions = {
+				files = {
+					["enter"] = "file_edit",
+					["ctrl-q"] = "send_all_to_qf",
+				},
+				grep = {
+					["enter"] = "file_edit",
+					["ctrl-q"] = "send_all_to_qf",
+				},
 			},
 		},
 	},

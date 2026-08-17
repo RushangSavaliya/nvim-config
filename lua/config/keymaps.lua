@@ -51,6 +51,7 @@ map("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>", { desc = "Grep Word Under C
 map("v", "<leader>fW", "<cmd>FzfLua grep_visual<cr>", { desc = "Grep Visual Selection" })
 map("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>fr", "<cmd>FzfLua oldfiles<cr>", { desc = "Recent Files" })
+map("n", "<leader>fR", "<cmd>FzfLua resume<cr>", { desc = "Resume Last Search" })
 
 -- Terminal
 map("n", "<leader>tt", terminal.toggle_split, { desc = "Toggle Terminal (split)" })
